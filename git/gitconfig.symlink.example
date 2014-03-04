@@ -1,0 +1,158 @@
+# Sample gitconfig
+
+[hub]
+    protocol = https
+
+[user]
+    name = GIT_USER_NAME
+    email = GIT_USER_EMAIL
+
+[credential]
+    helper = GIT_CREDENTIAL_HELPER
+
+[alias]
+    co = checkout
+    promote = !$ZSH/bin/git-promote
+    wtf     = !$ZSH/bin/git-wtf
+    rank-contributors = !$ZSH/bin/git-rank-contributors
+    count   = !git shortlog -sn
+
+[color]
+    ui          = auto
+    diff        = auto
+    status      = auto
+    branch      = auto
+    interactive = auto
+
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore
+
+[apply]
+    whitespace = nowarn
+
+[mergetool]
+    keepBackup = false
+
+[difftool]
+    prompt = false
+
+[help]
+    autocorrect = 1
+
+[push]
+    default = simple
+
+[format]
+    pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+
+[credential "https://github.com"]
+    username = GITHUB_USERNAME
+
+
+# [color "branch"]
+#     current = yellow reverse
+#     local = yellow
+#     remote = green
+# 
+# [color "diff"]
+#     meta = yellow bold
+#     frag = magenta bold
+#     old = red bold
+#     new = green bold
+
+[core]
+    editor = emacs -nw
+
+[user]
+    name = Stian Grytøyr
+    email = stian@grytoyr.net
+
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[diff]
+    tool = Kaleidoscope
+
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
+
+[merge]
+    tool = Kaleidoscope
+
+
+[alias]
+    lp = log --oneline
+
+    # add
+    a = add                             # add
+    chunkyadd = add --patch             # stage commits chunk by chunk
+
+    # branch
+    b = branch -v                       # branch (verbose)
+
+    # commit
+    c = commit -m                       # commit with message
+    ca = commit -am                     # commit all with message
+    ci = commit                         # commit
+    amend = commit --amend              # ammend your last commit
+    ammend = commit --amend             # ammend your last commit
+
+    # checkout
+    co = checkout                       # checkout
+    nb = checkout -b                    # create and switch to a new branch (mnemonic: "git new branch branchname...")
+
+    # cherry-pick
+    cp = cherry-pick -x                 # grab a change from a branch
+
+    # diff
+    d = diff                            # diff unstaged changes
+    dc = diff --cached                  # diff staged changes
+    last = diff HEAD^                   # diff last committed change
+
+    # log
+    log = log --decorate --graph --date=short
+    l = log
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+    changelog = log --pretty=format:\" * %s\"
+    shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+
+    # pull
+    pl = pull                           # pull
+
+    # push
+    ps = push                           # push
+
+    # rebase
+    rc = rebase --continue              # continue rebase
+    rs = rebase --skip                  # skip rebase
+
+    # remote
+    r = remote -v                       # show remotes (verbose)
+
+    # reset
+    unstage = reset HEAD                # remove files from index (tracking)
+    uncommit = reset --soft HEAD^       # go back before last commit, with files in uncommitted state
+    filelog = log -u                    # show changes to a file
+    mt = mergetool                      # fire up the merge tool
+
+    # stash
+    ss = stash                          # stash changes
+    sl = stash list                     # list stashes
+    sa = stash apply                    # apply stash (restore changes)
+    sd = stash drop                     # drop stashes (destory changes)
+
+    # status
+    s = status                          # status
+    st = status                         # status
+    stat = status                       # status
+
+    # tag
+    t = tag -n                          # show tags with <n> lines of each tag message
+
