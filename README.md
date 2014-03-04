@@ -4,6 +4,18 @@ These are my dotfiles. I’ll try to keep anything sensitive out of them, so
 go ahead and use/fork, but the whole point of dotfiles is to personalize things, 
 so my setup probably won’t fit your needs without a fair bit of tweaking.
 
+## Prerequisites
+`git` is probably the only hard requirements, but there’s not much point in using
+these dotfiles unless you have all of these:
+
+* git
+* zsh
+* tmux
+
+### Nice to have
+* hub
+
+
 ## Installation
 
 Run this:

@@ -1,19 +1,22 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
+# source oh-my-zsh first, so that we can override stuff later
+source $DOTFILES/zsh/oh-my-zsh.zsh
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/dev
 
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
+# use ~/.secret for setting up sensitive stuff that 
+# shouldn't be in your public repo
+if [[ -a ~/.secret ]]
 then
-  source ~/.localrc
+  source ~/.secret
 fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($DOTFILES/**/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -21,8 +24,8 @@ do
   source $file
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+# load everything but oh-my-zsh, the path and completion files
+for file in ${${${config_files:#*/oh-my-zsh.zsh}:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
