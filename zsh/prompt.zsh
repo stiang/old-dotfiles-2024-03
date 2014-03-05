@@ -110,9 +110,10 @@ prompt_pure_setup() {
 
   # show username@host if logged in through SSH
   # [[ "$SSH_CONNECTION" != '' ]] && prompt_pure_username='%n@%m '
+  [[ "$SSH_CONNECTION" != '' ]] && host="$(hostname --short) "
 
   # prompt turns red if the previous command didn't exit with 0
-  PROMPT='%(?.%F{magenta}.%F{red})❯%f '
+  PROMPT='%F{cyan}${host}%(?.%F{magenta}.%F{red})❯%f '
 }
 
 prompt_pure_setup "$@"

@@ -41,6 +41,8 @@ setup_gitconfig () {
     read -e git_authorname
     user ' - What is your github author email?'
     read -e git_authoremail
+    user ' - What is your github username?'
+    read -e github_username
 
     sed -e "s/GIT_USER_NAME/$git_authorname/g" \
         -e "s/GIT_USER_EMAIL/$git_authoremail/g" \
@@ -58,7 +60,7 @@ setup_zsh () {
   then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     mkdir -p ~/.oh-my-zsh/custom/plugins
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    git clone -q https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   fi
 }
 
