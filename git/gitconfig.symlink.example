@@ -65,8 +65,8 @@
 #     old = red bold
 #     new = green bold
 
-[core]
-    editor = emacs -nw
+# [core]
+#     editor = emacs -nw
 
 [user]
     name = Stian Grytøyr
