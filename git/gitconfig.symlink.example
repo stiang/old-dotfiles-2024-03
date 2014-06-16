@@ -84,6 +84,7 @@
 
 [merge]
     tool = Kaleidoscope
+    ff = false
 
 
 [alias]
