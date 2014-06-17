@@ -12,3 +12,4 @@ else
   alias emasc="emacs -nw"
 fi
 
+export PAGER='less -X -R'
