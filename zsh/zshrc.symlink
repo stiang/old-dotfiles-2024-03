@@ -41,3 +41,24 @@ do
 done
 
 unset config_files
+
+export NVM_DIR="/Users/stian/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+# Docker setup
+# eval "$(docker-machine env default)"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/stian/Downloads/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/stian/Downloads/google-cloud-sdk/completion.zsh.inc'
+
+# Env variables for Android Studio (React Native setup)
+export ANDROID_HOME=${HOME}/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+ulimit -n 4096
+# ulimit -u 4096
