@@ -21,7 +21,7 @@ if [[ `uname` == 'Darwin' ]]
 then
   alias emacs="subl -w"
   alias emasc="subl -w"
-  alias cat="colorize"
+  # alias cat="colorize"
   # alias less="colorize"
 else
   alias emacs="emacs -nw"

@@ -62,3 +62,5 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 ulimit -n 4096
 # ulimit -u 4096
+
+export PATH="$HOME/.fastlane/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
